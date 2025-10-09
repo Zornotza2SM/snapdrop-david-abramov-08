@@ -12,7 +12,7 @@ services:
       - 8081:80
       - 443:443
     restart: unless-stopped
-    
+
   apache:
     image: httpd:2.4-alpine
     container_name: apache
@@ -26,3 +26,23 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+
+  code:
+    image: lscr.io/linuxserver/code-server:latest
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Madrid
+      PASSWORD: 2SMAzornotza
+    volumes:
+      - ./:/config/workspace
+      - code_config:/config
+    ports:
+      - "8443:8443"
+
+
+volumes:
+  code_config:
+  
+  
