@@ -34,7 +34,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Madrid
-      PASSWORD: 2SMAzornotza
+      PASSWORD: ${VSCODE_PPASSWORD}
     volumes:
       - ./:/config/workspace
       - code_config:/config
@@ -59,9 +59,9 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-      - SETTINGS_ENCRYPTION_KEY=pon_algo_aquí
+      - SETTINGS_ENCRYPTION_KEY=${DUPLICATI_ENCRYPTION_KEY}
       - CLI_ARGS= #optional
-      - DUPLICATI__WEBSERVICE_PASSWORD=2SMAzornotza
+      - DUPLICATI__WEBSERVICE_PASSWORD=${DUPLICATI_PASSWORD}
     volumes:
       - ./duplicati:/config
       - ./micarpetasegura:/soruce/micarpetasegura
