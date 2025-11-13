@@ -75,6 +75,10 @@ services:
     build:
       context: .
 
+  serv-2:
+    image: landerr/nginx:1.0
+
+
 volumes:
   code_config:
   portainer_data:
